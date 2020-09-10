@@ -47,3 +47,7 @@ maxZoom | Specifies the maximum zoom level for the map. If not specified, it is 
 minZoom | Specifies the minimum zoom level for the map. If not specified, it is calculated automatically
 rotatable | Determines if the map with floors can be rotated
 initialRotation | Determines the angle of rotation of the map at which to open the widget. Indicated in radians. If not specified, the angle is selected automatically
+
+# Sample
+
+![](samples/sample1.gif)
