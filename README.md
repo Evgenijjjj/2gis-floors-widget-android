@@ -48,6 +48,8 @@ minZoom | Specifies the minimum zoom level for the map. If not specified, it is 
 rotatable | Determines if the map with floors can be rotated
 initialRotation | Determines the angle of rotation of the map at which to open the widget. Indicated in radians. If not specified, the angle is selected automatically
 
-# Sample
+# Samples
 
-![](samples/sample1.gif)
+1 | 2
+:-------------:|:-------------:
+![](samples/sample1.gif) | ![](samples/sample1.gif)
