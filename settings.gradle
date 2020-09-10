@@ -1,0 +1,3 @@
+rootProject.name = "FloorsDemoApp"
+include ':app'
+include ':gis-floors-widget'

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<script charset="utf-8" src="https://floors-widget.api.2gis.ru/loader.js"
+        id="dg-floors-widget-loader"></script>
+<script charset="utf-8">
+    var widget;
+
+    function loadMap(buildingId, initialFirmId, hideSearchPnl, localeKey, initialZoomValue, minZoomValue, maxZoomValue,
+                     rotatableValue, initialRotationValue
+    ) {
+        console.log("loadMap params: ", buildingId, initialFirmId, hideSearchPnl, localeKey, initialZoomValue,
+            minZoomValue, maxZoomValue, rotatableValue, initialRotationValue);
+        widget = DG.FloorsWidget.init({
+            width: '100%',
+            height: '100%',
+            initData: {
+                complexId: buildingId,
+                options: {
+                    initialFirm: initialFirmId,
+                    hideSearchPanel: hideSearchPnl,
+                    locale: localeKey,
+                    initialZoom: initialZoomValue,
+                    minZoom: minZoomValue,
+                    maxZoom: maxZoomValue,
+                    rotatable: rotatableValue,
+                    initialRotation: initialRotationValue
+                }
+            }
+        });
+
+        document.body.style.margin = "0px";
+
+        widget.on('click', (event) => {
+            let ret = JSON.stringify(event.firmIds);
+            console.log(ret);
+                  webkit.messageHandlers.onFirmClickedHandler.postMessage(ret)
+        });
+
+        // widget.on('click', (event) => {
+        //     // Callback.onFirmSelected(event.firmIds)
+        // });
+    }
+
+    function loadFirm(url) {
+        loadJson(url, function (res) {
+            Callback.onFirmLoaded(res)
+        });
+    }
+
+    function loadJson(url, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.responseType = 'json';
+        xhr.onload = function () {
+            let ret = JSON.stringify(xhr.response);
+            console.log(ret);
+            callback(ret);
+            // Callback.onJsonLoaded(ret);
+        };
+        xhr.send();
+    }
+
+    function showFirm(firmId) {
+        widget.showFirm(firmId);
+        widget.focusOnFirm(firmId)
+    }
+
+</script>
+
+</body>
+</html>

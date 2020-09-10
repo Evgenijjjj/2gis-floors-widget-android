@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="GisFloorsView">
+        <attr name="complexId" format="string"/>
+        <attr name="initialFirmId" format="string"/>
+        <attr name="locale" format="enum">
+            <enum name="RU" value="0"/>
+            <enum name="ES" value="1"/>
+            <enum name="EN" value="2"/>
+        </attr>
+        <attr name="hideSearchPanel" format="boolean"/>
+        <attr name="initialZoom" format="float"/>
+        <attr name="maxZoom" format="float"/>
+        <attr name="minZoom" format="float"/>
+        <attr name="rotatable" format="boolean"/>
+        <attr name="initialRotation" format="float"/>
+        <attr name="supportDarkTheme" format="boolean"/>
+    </declare-styleable>
+</resources>
